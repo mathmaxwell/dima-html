@@ -1,8 +1,11 @@
 /**
- * Vite всегда называет результат index.html. Переименовываем в «Дом Кино.html»,
+ * Vite всегда называет результат index.html. Рядом кладём копию «Дом Кино.html»,
  * чтобы файл было не стыдно отправить заказчику или положить на телефон.
+ *
+ * Именно копию, а не переименование: index.html обязан остаться на месте —
+ * хостинг (Netlify и любой другой) ищет в корне именно его, иначе отдаёт 404.
  */
-import { renameSync, existsSync } from 'node:fs';
+import { copyFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -15,5 +18,6 @@ if (!existsSync(from)) {
   process.exit(1);
 }
 
-renameSync(from, to);
-console.log('→ dist/Дом Кино.html');
+copyFileSync(from, to);
+console.log('→ dist/index.html (для хостинга)');
+console.log('→ dist/Дом Кино.html (для отправки)');
