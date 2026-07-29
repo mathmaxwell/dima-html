@@ -1,0 +1,67 @@
+@import './fonts.css';
+@import './animations.css';
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #e9e1d6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+  overscroll-behavior: none;
+}
+
+body {
+  overflow: hidden;
+}
+
+#root {
+  width: 100%;
+  height: 100vh;
+  height: 100dvh; /* без учёта адресной строки браузера */
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* Прокручиваемая область экрана. Полосу прокрутки прячем, инерцию оставляем. */
+.dk-scroll {
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+/*
+ * Safari увеличивает страницу при фокусе на поле со шрифтом меньше 16px
+ * и обратно уже не возвращает — вёрстка «уезжает». !important нужен,
+ * потому что размеры шрифтов заданы инлайново из JS.
+ */
+@media (pointer: coarse) {
+  input,
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+}

@@ -1,0 +1,84 @@
+/* Анимации интерфейса. Имена намеренно короткие — они используются
+   инлайново в свойстве animation у компонентов. */
+
+/* появление и переходы между экранами */
+@keyframes dkfade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes dkscreen {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes dkslidein {
+  from { opacity: 0; transform: translateX(24px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes dkrise {
+  from { opacity: 0; transform: translateY(26px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes dkup {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+@keyframes dkpop {
+  0% { transform: scale(0.85); opacity: 0; }
+  60% { transform: scale(1.03); }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes dktoast {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* живые состояния: ожидание, пульс, дыхание */
+@keyframes dkspin {
+  to { transform: rotate(360deg); }
+}
+@keyframes dkpulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+@keyframes dkbreathe {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.08); opacity: 1; }
+}
+@keyframes dkring {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+@keyframes dkcheck {
+  from { stroke-dashoffset: 48; }
+  to { stroke-dashoffset: 0; }
+}
+
+/* кинематографичные фоны */
+@keyframes dkzoom {
+  from { transform: scale(1.15); }
+  to { transform: scale(1); }
+}
+@keyframes dkzoomslow {
+  from { transform: scale(1); }
+  to { transform: scale(1.12); }
+}
+@keyframes dklight {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes dkwin {
+  0% { opacity: 0.15; }
+  100% { opacity: 0.9; }
+}
+@keyframes dkscan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(400%); }
+}
+@keyframes dkflow {
+  0% { stroke-dashoffset: 200; }
+  100% { stroke-dashoffset: 0; }
+}
+@keyframes dkdrift {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-8px); }
+}
